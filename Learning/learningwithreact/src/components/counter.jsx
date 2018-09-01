@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 //import ReactDOM from 'react-dom';
+// import { Button } from 'reactstrap';
 export default class counter extends Component{
     state = {
-        count : 0,
+        // count : 0,
+       count: this.props.counter.value,
         // tags : ['tag1','tag2','tag3'],
     };
     // {Using This we can make our code more efficient}
@@ -15,7 +17,7 @@ export default class counter extends Component{
     // }
     handleEvent = (product) => {
         console.log("Button clicked",product);
-        this.setState({ count : this.state.count + 1})
+        this.setState({count: this.state.count+ 1})
         console.log(this.state.count);
     };
     // dohandleEvent = () => {
@@ -26,7 +28,7 @@ export default class counter extends Component{
     };
     getClassesBadges() {
         let classes = "text-";
-        classes += this.state.count === 0 ? "success m-2" : "info m-2";
+        classes += this.state.count=== 0 ? "success m-2" : "info m-2";
         return classes;
     }
 
@@ -39,8 +41,11 @@ export default class counter extends Component{
     //     return <ul>{this.state.tags.map(tag => <li key = {tag}>{tag}</li>)}</ul>
     // }
     render(){
+        // console.log(this.props.key);
         return(
-            <React.Fragment>
+            // <React.Fragment>
+            <div>
+                {this.props.children}
                 <span style = {this.style} className={this.getClassesBadges()}>{this.formatCount()}</span>
                 {/* {u can use in line style like style = {{fontSize : 40}}} */}
                 {/* <button onClick = {this.dohandleEvent}>Incerment</button> */}
@@ -52,7 +57,12 @@ export default class counter extends Component{
                     {/* {Truthy and falsy technique} */}
                     {/* {this.renderTag()} */}
                 {/* </ul> */}
-            </React.Fragment>
+                <span> </span>
+                <button 
+                onClick={() =>this.props.onDelete(this.props.counter.id)}>Delete</button>
+                {/* <Button color="danger">danger</Button> */}
+            </div>    
+            // </React.Fragment>
 
         );
     }

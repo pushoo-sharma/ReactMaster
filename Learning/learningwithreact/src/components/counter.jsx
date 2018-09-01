@@ -2,11 +2,11 @@ import React,{Component} from 'react';
 //import ReactDOM from 'react-dom';
 // import { Button } from 'reactstrap';
 export default class counter extends Component{
-    state = {
-        // count : 0,
-       count: this.props.counter.value,
-        // tags : ['tag1','tag2','tag3'],
-    };
+    // state = {
+    //     // count : 0,
+    //    count: this.props.counter.value,
+    //     // tags : ['tag1','tag2','tag3'],
+    // };
     // {Using This we can make our code more efficient}
     // constructor(){
     //     super();
@@ -15,11 +15,11 @@ export default class counter extends Component{
     // handleEvent(){
     //     console.log("Button clicked",this);
     // }
-    handleEvent = (product) => {
-        console.log("Button clicked",product);
-        this.setState({count: this.state.count+ 1})
-        console.log(this.state.count);
-    };
+    // handleEvent = (product) => {
+    //     console.log("Button clicked",product);
+    //     this.setState({count: this.state.count+ 1})
+    //     console.log(this.state.count);
+    // };
     // dohandleEvent = () => {
     //     this.handleEvent({id : 1});
     // };
@@ -28,12 +28,18 @@ export default class counter extends Component{
     };
     getClassesBadges() {
         let classes = "text-";
-        classes += this.state.count=== 0 ? "success m-2" : "info m-2";
+        // classes += this.state.count=== 0 ? "success m-2" : "info m-2";
+        classes += this.props.counter.value=== 0 ? "success m-2" : "info m-2";
+        // console.log(classes);
+        // classes += c.value=== 0 ? "success m-2" : "info m-2";
         return classes;
     }
 
     formatCount(){
-        var {count} = this.state;
+        // var {count} = this.state;
+        var count = this.props.counter.value;
+        // console.log(this.props.counter.value);
+        // var {count} = c;
         return (count === 0 ? "zero" : count);
     }
     // renderTag(){
@@ -41,7 +47,7 @@ export default class counter extends Component{
     //     return <ul>{this.state.tags.map(tag => <li key = {tag}>{tag}</li>)}</ul>
     // }
     render(){
-        // console.log(this.props.key);
+        // console.log(this.props.counter);
         return(
             // <React.Fragment>
             <div>
@@ -50,7 +56,9 @@ export default class counter extends Component{
                 {/* {u can use in line style like style = {{fontSize : 40}}} */}
                 {/* <button onClick = {this.dohandleEvent}>Incerment</button> */}
                 {/* using inline  */}
-                <button onClick = {() => {this.handleEvent({id : 1})}}>Increment</button>
+                {/* <button onClick = {() => {this.handleEvent({id : 1})}}>Increment</button> */}
+                <button 
+                onClick = {() => this.props.onIncrement(this.props.counter)}>Increment</button>
                 {/* {u have to pass refernce in onClick} */}
                 {/* <ul>
                     {this.state.tags.length === 0 && "Please enter some tag"} */}

@@ -8,6 +8,16 @@ class Counters extends Component {
             {id : 3,value : 0}
         ]
     };
+    onIncrement = counter =>{
+        const newcounter = [...this.state.counters];
+        const index = newcounter.indexOf(counter);
+        // newcounter[0].value++;
+        // incrementing the value of counter is no no in react
+        newcounter[index] = {...counter};
+        newcounter[index].value++;
+        // console.log(this.state.counters[index]);
+        this.setState({counters : newcounter});
+    };
     handleDelete = counterid =>{
         // console.log("Handle Delete invoked ",counterid)
         const newcounters = this.state.counters.filter( c => c.id !== counterid);
@@ -26,7 +36,8 @@ class Counters extends Component {
                 {this.state.counters.map(counter => 
                 <Counter key={counter.id}
                 counter = {counter}
-                onDelete = {this.handleDelete}>
+                onDelete = {this.handleDelete}
+                onIncrement = {this.onIncrement}>
                 {/* value = {counter.value}
                 id = {counter.id} 
                 selected = {true}>

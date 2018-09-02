@@ -2,6 +2,8 @@ import React , {Component} from 'react';
 import Counter from './counter';
 class Counters extends Component {
     render(){
+        // const { onDelete , onIncrement} = this.props;
+        // argument destructuring
         return(
             <div>
                 <button onClick = {this.props.handleReset}>

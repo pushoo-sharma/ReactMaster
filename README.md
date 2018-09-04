@@ -6,7 +6,8 @@ Building lots of learning React App for learning and Mastering React :)
 </br>
 2. Single Sorce of truth (Common Mistake)
 </br>
-3. LifeCycle Hooks
+3. LifeCycle Hooks<br/>
+(Quick View)
 https://medium.com/@pushpak.sharma/life-cycle-hook-in-react-a5d6ff5df053
 <ul>
   <li>Mount</li>
